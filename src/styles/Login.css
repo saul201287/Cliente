@@ -1,0 +1,42 @@
+.divider:after,
+.divider:before {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #eee;
+}
+.h-custom {
+  height: calc(100% - 73px);
+}
+@media (max-width: 450px) {
+  .h-custom {
+    height: 100%;
+  }
+}
+.cont {
+  width: 550px;
+  background-color: #ffffff42;
+  text-align: center;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+input{
+  margin-bottom: 15px;
+  padding: 12px;
+}
+
+label{
+  margin-left: 10px;
+}
+h2{
+  display: flex;
+  margin-top: -190px;
+  margin-bottom:80px ;
+}
+button{
+
+  margin-top: 20px;
+}

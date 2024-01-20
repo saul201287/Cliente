@@ -1,0 +1,8 @@
+.body{
+    height: 500px;
+    width: 100%;
+    display: flex;
+    margin-left: 5%;
+    align-items: center;
+    
+}
