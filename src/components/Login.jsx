@@ -7,14 +7,35 @@ import {
   MDBBtn,
   MDBInput,
 } from "mdb-react-ui-kit";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
   const [pass, setPass] = useState("");
   const [name, setName] = useState("");
+  const navegar = useNavigate();
 
-  const inicioSesion = () => {
-    alert("hola", name, pass);
-    console.log(name, pass);
+  const inicioSesion = async () => {
+    try {
+      const response = await fetch(
+        `http://localhost:3000/usuarios/${name}&${pass}`
+      );
+      if (!response.ok) {
+        throw new Error(`HTTP error Status: ${response.status}`);
+      }
+      await fetch(`http://localhost:3000/usuarios/${name}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+        .then((data) => console.log(data))
+        .catch((error) => console.log(error));
+
+      const data = await response.json();
+      navegar(`/home/${data.data[0].name}`);
+    } catch (error) {
+      console.error("Error:", error);
+    }
   };
 
   return (

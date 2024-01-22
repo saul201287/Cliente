@@ -1,0 +1,12 @@
+ul{
+    border-color:antiquewhite;
+    border-radius: 10% solid white 2px; 
+}
+li{
+    border: 15px;
+    border-color: aliceblue;
+    list-style: none;
+}
+ol{
+    text-align:start;
+}
