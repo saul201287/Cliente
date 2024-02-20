@@ -11,28 +11,20 @@ import { useNavigate } from "react-router-dom";
 
 function Login() {
   const [pass, setPass] = useState("");
-  const [name, setName] = useState("");
+  const [nombre, setName] = useState("");
   const navegar = useNavigate();
 
   const inicioSesion = async () => {
     try {
       const response = await fetch(
-        `http://localhost:3000/usuarios/${name}&${pass}`
+        `http://localhost:3000/usuarios/${nombre}&${pass}`
       );
       if (!response.ok) {
         throw new Error(`HTTP error Status: ${response.status}`);
+      } else {
+        const data = await response.json();
+        navegar(`/home/${nombre}`);
       }
-      await fetch(`http://localhost:3000/usuarios/${name}`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      })
-        .then((data) => console.log(data))
-        .catch((error) => console.log(error));
-
-      const data = await response.json();
-      navegar(`/home/${data.data[0].name}`);
     } catch (error) {
       console.error("Error:", error);
     }
@@ -58,7 +50,7 @@ function Login() {
             id="formControlLg"
             type="email"
             size="lg"
-            value={name}
+            value={nombre}
             onChange={(e) => setName(e.target.value)}
           />
           <MDBInput
