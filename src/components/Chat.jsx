@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { FaThumbsUp, FaUserGraduate, FaHardHat, FaBuilding } from 'react-icons/fa';
 import Room from './Room';
 
 function Chat({usuario}) {
-  const [salas, setSalas] = useState([
+  const [salas] = useState([
     { nombre: 'Trabajadores', icono: <FaThumbsUp /> },
     { nombre: 'Becarios', icono: <FaUserGraduate /> },
     { nombre: 'Mantenimiento', icono: <FaHardHat /> },

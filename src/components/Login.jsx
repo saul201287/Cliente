@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "../styles/Login.css";
 import {
   MDBContainer,
@@ -23,6 +23,7 @@ function Login() {
         throw new Error(`HTTP error Status: ${response.status}`);
       } else {
         const data = await response.json();
+        console.log(data);
         navegar(`/home/${nombre}`);
       }
     } catch (error) {
@@ -36,7 +37,7 @@ function Login() {
         <MDBCol col="10" md="6">
           <img
             src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
-            class="img-fluid"
+            className="img-fluid"
             alt="Sample image"
             width={700}
           />
