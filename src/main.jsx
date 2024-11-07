@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 import Home from "./components/Home.jsx";
 import Prueba from "./components/prueba.jsx";
+import ChatRoom from "./components/ChatRoom.jsx";
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
@@ -16,6 +17,9 @@ const router = createBrowserRouter([
   },{
     path:`/prueba`,
     element:<Prueba/>
+  },{
+    path:'/chat',
+    element:<ChatRoom/>
   }
 ]);
 ReactDOM.createRoot(document.getElementById("root")).render(
